@@ -1,3 +1,4 @@
 build:
-	gcc a082.cpp -o a082.o
-	./a082.o < a082.input
+	clear
+	g++ a078.cpp -o a078.o
+	./a078.o < a078.input

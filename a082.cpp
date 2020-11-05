@@ -40,9 +40,9 @@ class Card_Stack {
 	};
 	static bool cmp (Card X, Card Y) {
 		if (X.type != Y.type)
-			return X.type < Y.type;
+			return X.type > Y.type;
 		else
-			return X.number < Y.number;
+			return X.number > Y.number;
 	}
 	
 	public:
@@ -60,7 +60,11 @@ class Card_Stack {
 			Card card (token[0], stoi (token.substr (1, token.length() - 1)));
 			card_list.push_back (card);
 			tmp.erase (0, position + delim.length ());
+//			cout << "Remaining string: " << tmp << endl;
 		}
+		Card card (tmp[0], stoi (tmp.substr (1, tmp.length() - 1)));
+		card_list.push_back (card);
+		
 	}
 	
 	void qsort () {
@@ -81,8 +85,12 @@ int main ()
 {	
 	int stack_count;
 	cin >> stack_count;
+	string tmp;
+	getline (cin, tmp);
 	for (int i = 0; i < stack_count; i++) {
+//		cout << "Sorting the "  << i + 1 << "th stack of card." << endl;
 		Card_Stack card_stack;
+//		card_stack.print ();
 		card_stack.qsort ();
 		card_stack.print ();
 	}	
