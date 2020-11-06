@@ -1,4 +1,4 @@
 build:
 	clear
-	g++ a078.cpp -o a078.o
-	./a078.o < a078.input
+	gcc a041.c -o a041.o
+	./a041.o < a041.input
