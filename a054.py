@@ -11,7 +11,7 @@ def sentenceParse (word_list):
 
 # driver code
 test_size = eval (input (""))
-
+tmp = input ("")
 for case in range (test_size):
 	print ("Case #{:d}:".format (case + 1))
 	for line in sys.stdin:
