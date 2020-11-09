@@ -1,4 +1,3 @@
 build:
 	clear
-	g++ a084.cpp -o a084.o
-	./a084.o < a084.input
+	python a054.py < a054.input
