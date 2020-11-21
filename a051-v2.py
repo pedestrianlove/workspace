@@ -1,19 +1,16 @@
-def house (n, friends):
-	if n == 1:
+import sys
+def house (current, total):
+	if total == 1 or total == 0:
 		return 1
 	methods = 0
-	for i in range (n - 1):
-		methods += house (n - i - 1)
-
-
-
+	for next_current in range (1, current + 1, 2):
+		if total >= next_current:
+			methods += house (next_current, total - next_current)
+	return methods
 
 
 # driver code
-test_cases = eval (input (""))
-for i in range (test_cases):
-	num = eval (input (""))
-	summation = 0
-	for j in range (1, num + 1):
-		if ()
-	print () 
+test_cases = input ("")
+for line in sys.stdin:
+	num = eval (line)
+	print (house (num, num))
