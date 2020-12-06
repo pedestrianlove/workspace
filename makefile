@@ -1,3 +1,4 @@
 build:
 	clear
-	python a054.py < a054.input
+	gcc a058.c -o a058
+	./a058 < a058.input
