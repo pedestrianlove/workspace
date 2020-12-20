@@ -1,0 +1,51 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+size_t num_of_employee;
+
+// function area
+unsigned short max (unsigned short x, unsigned short y) {
+	if (x > y) return x;
+	else return y;
+}
+unsigned short min (unsigned short x, unsigned short y) {
+	if (x < y) return x;
+	else return y;
+}
+size_t idx (int a, int b) {
+	size_t x =  a;
+	size_t y =  b;
+	return (x * (2 * num_of_employee - 2 - (x - 1))/2) + (y - x) - 1;
+}
+
+int t[2 * num_of_employee];
+
+void build() {  // build the tree
+	for (int i = n - 1; i > 0; --i) t[i] = t[i<<1] + t[i<<1|1];
+}
+
+void modify(int p, int value) {  // set value at position p
+	for (t[p += n] = value; p > 1; p >>= 1) t[p>>1] = t[p] + t[p^1];
+}
+
+int query(int l, int r) {  // sum on interval [l, r)
+	int res = 0;
+	for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
+ 		if (l&1) res += t[l++];
+		if (r&1) res += t[--r];
+  	}
+	return res;
+}
+
+int main() {
+	scanf("%d", &n);
+	for (int i = 0; i < n; ++i) 
+		scanf("%d", t + n + i);
+	build();
+	modify(0, 1);
+	printf("%d\n", query(3, 11));
+	return 0;
+}
+
