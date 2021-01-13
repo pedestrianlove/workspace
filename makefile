@@ -1,4 +1,4 @@
 build:
 	clear
-	g++ a041.cpp -o a041
+	g++ a041_dict.cpp -o a041
 	./a041 < a041.input
